@@ -1,0 +1,16 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/dohykim/42cursus/push_swap/push_swap_dohykim_merge'
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I./includes/ -o srcs/main.o -c srcs/main.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I./includes/ -o srcs/utils.o -c srcs/utils.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I./includes/ -o srcs/./instr/instruction.o -c srcs/./instr/instruction.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I./includes/ -o srcs/./instr/instruction_utils.o -c srcs/./instr/instruction_utils.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I./includes/ -o srcs/index.o -c srcs/index.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I./includes/ -o srcs/markup.o -c srcs/markup.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I./includes/ -o srcs/sort.o -c srcs/sort.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I./includes/ -o srcs/solve_a.o -c srcs/solve_a.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I./includes/ -o srcs/solve_b.o -c srcs/solve_b.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I./includes/ -o srcs/command.o -c srcs/command.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I./includes/ -o srcs/direction.o -c srcs/direction.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I./includes/ -o push_swap ./srcs/main.o ./srcs/utils.o ./srcs/./instr/instruction.o ./srcs/./instr/instruction_utils.o ./srcs/index.o ./srcs/markup.o ./srcs/sort.o ./srcs/solve_a.o ./srcs/solve_b.o ./srcs/command.o ./srcs/direction.o
+make: Leaving directory '/home/dohykim/42cursus/push_swap/push_swap_dohykim_merge'
+ 
