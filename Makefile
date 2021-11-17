@@ -6,7 +6,7 @@
 #    By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 15:50:21 by dohykim           #+#    #+#              #
-#    Updated: 2021/11/17 03:26:53 by dohykim          ###   ########.fr        #
+#    Updated: 2021/11/18 07:24:08 by dohykim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,19 +18,19 @@ CDEBUG	= 	-fsanitize=address -g
 
 FOLDER		=	./srcs/
 HEADER		=	./includes/
-INSTRUCTION	=	./instr/
+UTILS	=	./utils/
+SORT	=	./sort/
+OBJS_FOLDER	=	./objs/
 
 SRC_LIST	=	main.c\
-				utils.c\
-				$(INSTRUCTION)instruction.c\
-				$(INSTRUCTION)instruction_utils.c\
-				index.c\
-				markup.c\
-				sort.c\
-				solve_a.c\
-				solve_b.c\
-				command.c\
-				direction.c\
+				$(UTILS)utils.c\
+				$(UTILS)instruction.c\
+				$(UTILS)instruction_utils.c\
+				$(UTILS)command.c\
+				$(SORT)index.c\
+				$(SORT)solve_a.c\
+				$(SORT)solve_b.c\
+				$(SORT)direction.c\
 
 SRC		=	$(addprefix $(FOLDER), $(SRC_LIST))
 OBJS	=	$(SRC:%.c=%.o)

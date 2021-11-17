@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 03:48:09 by dohykim           #+#    #+#             */
-/*   Updated: 2021/11/17 04:22:53 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/11/18 06:35:58 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,6 @@ static t_shift_info *init_shift_info(void)
 	shift_info->is_set = FALSE;
 	return (shift_info);
 }
-
-
-
-
 
 static void	move_b(t_stack *a_stack, t_stack *b_stack,
 					t_shift_info *shift_info, t_cmd_lst *cmd_lst)

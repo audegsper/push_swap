@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 18:00:37 by dohykim           #+#    #+#             */
-/*   Updated: 2021/11/17 07:06:38 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/11/18 07:15:25 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,6 @@
 size_t	ft_max(size_t a, size_t b)
 {
 	return (a > b ? a : b);
-}
-
-t_bool	check_error(t_node *node)
-{
-	t_node	*new;
-	t_bool	err_num;
-
-	err_num = TRUE;
-	if (node != NULL)
-	{
-		err_num = FALSE;
-		new = node->prev;
-		while (node != new)
-		{
-			if (new->value == node->value)
-				err_num = TRUE;
-			node = node->next;
-		}
-	}
-	if (err_num == TRUE)
-	{
-		write(1, "Error\n", 6);
-		exit(1);
-	}
-	else
-		return (0);
 }
 
 int	ft_atoi(const char *str)
@@ -72,14 +46,34 @@ int	ft_atoi(const char *str)
 	return (sign * nbr);
 }
 
-void	init_stack(t_stack *stack)
+t_bool	check_error(t_stack *stack)
 {
-	stack->top = NULL;
-	stack->set_idx = NULL;
-	stack->bottom = NULL;
-	stack->markup_head = NULL;
-	stack->pairs = 0;
-	stack->size = 0;
+	t_node	*new;
+	t_node	*node;
+	t_bool	err_num;
+
+	err_num = TRUE;
+	if (stack != NULL)
+	{
+		if (stack->size == 1)
+			exit(0);
+		node = stack->top;
+		err_num = FALSE;
+		new = node->prev;
+		while (node != new)
+		{
+			if (new->value == node->value)
+				err_num = TRUE;
+			node = node->next;
+		}
+	}
+	if (err_num == TRUE)
+	{
+		write(1, "Error\n", 6);
+		exit(1);
+	}
+	else
+		return (0);
 }
 
 t_node	*node_init(int value)
@@ -94,20 +88,20 @@ t_node	*node_init(int value)
 	return (new_node);
 }
 
-
-void	free_stack(t_stack *stack)
+void	init_all(t_stack *stack, t_cmd_lst *cmd_lst)
 {
-	t_node	*tmp;
-	size_t	i;
-
-	i = 0;
-	while (i++ < stack->size)
+	if (stack != NULL)
 	{
-		tmp = stack->top;
-		stack->top = stack->top->next;
-		free(tmp);
+		stack->top = NULL;
+		stack->set_idx = NULL;
+		stack->bottom = NULL;
+		stack->markup_head = NULL;
+		stack->pairs = 0;
+		stack->size = 0;
 	}
-	stack->size = 0;
-	free(stack);
+	if (cmd_lst != NULL)
+	{
+		cmd_lst->size = 0;
+		cmd_lst->head = NULL;
+	}
 }
-

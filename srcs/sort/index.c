@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   markup.c                                           :+:      :+:    :+:   */
+/*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/13 17:25:16 by dohykim           #+#    #+#             */
-/*   Updated: 2021/11/16 11:42:21 by dohykim          ###   ########.fr       */
+/*   Created: 2021/11/13 15:46:15 by dohykim           #+#    #+#             */
+/*   Updated: 2021/11/18 06:54:01 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-size_t	ft_markup_stack_index(t_stack *stack, t_node *markup_head, t_bool stk_cat)
+size_t	ft_markup_stack_index(t_stack *stack, t_node *markup_head)
 {
 	ssize_t	index;
 	size_t	pairs;
@@ -26,12 +26,11 @@ size_t	ft_markup_stack_index(t_stack *stack, t_node *markup_head, t_bool stk_cat
 		current = markup_head->next;
 		while (current != markup_head)
 		{
-			if ((stk_cat == FT_STACK_GT && current->index > index)
-			|| (stk_cat == FT_STACK && current->index == index + 1))
+			if (current->index == index + 1)
 			{
 				pairs++;
 				current->keep_stack = TRUE;
-				index = (stk_cat == FT_STACK ? index + 1 : current->index);
+				index++;
 			}
 			else
 				current->keep_stack = FALSE;
@@ -41,7 +40,7 @@ size_t	ft_markup_stack_index(t_stack *stack, t_node *markup_head, t_bool stk_cat
 	return (pairs);
 }
 
-void	opt_markup_stack(t_stack *stack, t_bool which_dir)
+void	opt_markup_stack(t_stack *stack)
 {
 	size_t	i;
 	size_t	current_pairs;
@@ -53,7 +52,7 @@ void	opt_markup_stack(t_stack *stack, t_bool which_dir)
 		current = stack->top;
 		while (i < stack->size)
 		{
-			current_pairs = ft_markup_stack_index(stack, current, which_dir);
+			current_pairs = ft_markup_stack_index(stack, current);
 			if (current_pairs > stack->pairs)
 			{
 				stack->markup_head = current;
@@ -66,6 +65,45 @@ void	opt_markup_stack(t_stack *stack, t_bool which_dir)
 			i++;
 			current = current->next;
 		}
-		ft_markup_stack_index(stack, stack->markup_head, which_dir);
+		ft_markup_stack_index(stack, stack->markup_head);
 	}
+}
+
+static t_node	*ft_get_next_min(t_stack *stack)
+{
+	size_t		i;
+	t_bool		has_min;
+	t_node		*min;
+	t_node		*current;
+
+	if(stack)
+	{
+		min = NULL;
+		i = 0;
+		has_min = FALSE;
+		current = stack->top;
+		while (i < stack->size)
+		{
+			if ((current->index == -1)
+			&& (!has_min || current->value < min->value))
+			{
+				has_min = TRUE;
+				min = current;
+			}
+			i++;
+			current = current->next;
+		}
+	}
+	return (min);
+}
+
+void	ft_index_stack(t_stack *stack)
+{
+	size_t		index;
+	t_node		*current;
+
+	index = 0;
+	while ((current = ft_get_next_min(stack)))
+		current->index = index++;
+	opt_markup_stack(stack);
 }

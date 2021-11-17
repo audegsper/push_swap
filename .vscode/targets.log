@@ -6,10 +6,13 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Nov 18 04:55:20 2021
+# Make data base, printed on Thu Nov 18 07:11:38 2021
 
 # Variables
 
+# makefile (from 'Makefile', line 21)
+ 
+UTILS = ./utils/
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
@@ -20,7 +23,7 @@ WSLENV = VSCODE_WSL_EXT_LOCATION/up
 .SHELLFLAGS := -c
 # environment
 VSCODE_AGENT_FOLDER = /home/dohykim/.vscode-server
-# makefile (from 'Makefile', line 35)
+# makefile (from 'Makefile', line 34)
 SRC = $(addprefix $(FOLDER), $(SRC_LIST))
 # environment
 VSCODE_LOG_NATIVE = false
@@ -46,7 +49,7 @@ MAKEFILE_LIST :=  Makefile
 GNUMAKEFLAGS := 
 # environment
 VSCODE_VERBOSE_LOGGING = true
-# makefile (from 'Makefile', line 36)
+# makefile (from 'Makefile', line 35)
 OBJS = $(SRC:%.c=%.o)
 # environment
 INFOPATH = /home/linuxbrew/.linuxbrew/share/info:
@@ -104,8 +107,6 @@ MAKE = $(MAKE_COMMAND)
 MAKECMDGOALS := all
 # environment
 SHLVL = 0
-# makefile (from 'Makefile', line 21)
-INSTRUCTION = ./instr/
 # makefile (from 'Makefile', line 15)
 CC = gcc
 # default
@@ -134,6 +135,8 @@ OLDPWD = /mnt/e/Softrware Files/Microsoft VS Code
 *F = $(notdir $*)
 # makefile
 MAKEFLAGS = pqrR
+# makefile (from 'Makefile', line 22)
+SORT = ./sort/
 # environment
 MFLAGS = -pqrR
 # automatic
@@ -164,8 +167,8 @@ HOSTTYPE = x86_64
 ^F = $(notdir $^)
 # default
 SUFFIXES := 
-# makefile (from 'Makefile', line 23)
-SRC_LIST = main.c utils.c $(INSTRUCTION)instruction.c $(INSTRUCTION)instruction_utils.c index.c markup.c sort.c solve_a.c solve_b.c command.c direction.c 
+# makefile (from 'Makefile', line 24)
+SRC_LIST = main.c $(UTILS)utils.c $(UTILS)instruction.c $(UTILS)instruction_utils.c $(UTILS)command.c $(SORT)index.c $(SORT)solve_a.c $(SORT)solve_b.c $(SORT)direction.c 
 # default
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # environment
@@ -181,7 +184,7 @@ VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 # environment
 WSL_DISTRO_NAME = Ubuntu
 # variable set hash-table stats:
-# Load=85/1024=8%, Rehash=0, Collisions=7/126=6%
+# Load=86/1024=8%, Rehash=0, Collisions=12/133=9%
 
 # Pattern-specific Variable Values
 
@@ -190,25 +193,19 @@ WSL_DISTRO_NAME = Ubuntu
 # Directories
 
 # . (device 2064, inode 107083): 8 files, no impossibilities.
-# srcs (device 2064, inode 107096): 21 files, no impossibilities so far.
+# srcs (device 2064, inode 107096): 5 files, no impossibilities so far.
 
-# 29 files, no impossibilities in 2 directories.
+# 13 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
 %.o: %.c
-#  recipe to execute (from 'Makefile', line 41):
+#  recipe to execute (from 'Makefile', line 40):
 			$(CC) $(CFLAGS) $(CDEBUG) -I$(HEADER) -o $@ -c $<
 
 # 1 implicit rules, 0 (0.0%) terminal.
 
 # Files
-
-# Not a target:
-srcs/./instr/instruction_utils.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
 
 all: push_swap
 #  Phony target (prerequisite of .PHONY).
@@ -226,66 +223,41 @@ all: push_swap
 #  File has not been updated.
 
 # Not a target:
-srcs/solve_a.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-srcs/direction.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-srcs/markup.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-17 03:26:53.4628121
+#  Last modified 2021-11-18 07:11:21.6155366
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 srcs/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-18 04:53:52.5555366
+#  Last modified 2021-11-18 07:02:22.1555366
 #  File has been updated.
 #  Successfully updated.
 
-# Not a target:
-srcs/utils.o:
+re: fclean all
+#  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
-#  Modification time never checked.
+#  File does not exist.
 #  File has not been updated.
 
 # Not a target:
-srcs/solve_b.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-srcs/./instr/instruction.o:
+srcs/./sort/index.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 fclean: clean
- 
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 48):
+#  recipe to execute (from 'Makefile', line 47):
 	rm -f $(NAME)
 
 # Not a target:
-srcs/command.o:
+srcs/./utils/utils.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -296,10 +268,16 @@ srcs/command.o:
 #  Modification time never checked.
 #  File has not been updated.
 
-re: fclean all
-#  Phony target (prerequisite of .PHONY).
+# Not a target:
+srcs/./utils/instruction_utils.o:
 #  Implicit rule search has not been done.
-#  File does not exist.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+srcs/./utils/command.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
 #  File has not been updated.
 
 clean:
@@ -307,27 +285,28 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 46):
+#  recipe to execute (from 'Makefile', line 45):
 	rm -f $(OBJS)
 
-push_swap: srcs/main.o srcs/utils.o srcs/./instr/instruction.o srcs/./instr/instruction_utils.o srcs/index.o srcs/markup.o srcs/sort.o srcs/solve_a.o srcs/solve_b.o srcs/command.o srcs/direction.o
+push_swap: srcs/main.o srcs/./utils/utils.o srcs/./utils/instruction.o srcs/./utils/instruction_utils.o srcs/./utils/command.o srcs/./sort/index.o srcs/./sort/solve_a.o srcs/./sort/solve_b.o srcs/./sort/direction.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-18 04:51:51.9755366
+#  File does not exist.
 #  File has been updated.
+ 
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/7=0%
-#  recipe to execute (from 'Makefile', line 44):
+#  recipe to execute (from 'Makefile', line 43):
 			$(CC) $(CFLAGS) $(CDEBUG) -I$(HEADER) -o $(NAME) $(OBJS)
 
 # Not a target:
-srcs/sort.o:
+srcs/./sort/solve_a.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
-srcs/index.o:
+srcs/./sort/direction.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -335,7 +314,7 @@ srcs/index.o:
 srcs/main.o: srcs/main.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'srcs/main'
-#  Last modified 2021-11-18 04:51:51.3655366
+#  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # automatic
@@ -356,23 +335,35 @@ srcs/main.o: srcs/main.c
 # ? := srcs/main.c
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=3/17=18%
-#  recipe to execute (from 'Makefile', line 41):
+#  recipe to execute (from 'Makefile', line 40):
 			$(CC) $(CFLAGS) $(CDEBUG) -I$(HEADER) -o $@ -c $<
 
+# Not a target:
+srcs/./sort/solve_b.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+srcs/./utils/instruction.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 # files hash-table stats:
-# Load=21/1024=2%, Rehash=0, Collisions=0/55=0%
+# Load=19/1024=2%, Rehash=0, Collisions=2/51=4%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 51 / storage = 514 B / avg = 10 B
-# current buf: size = 8162 B / used = 514 B / count = 51 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 34 / storage = 387 B / avg = 11 B
+# current buf: size = 8162 B / used = 387 B / count = 34 / avg = 11 B
 
-# strcache performance: lookups = 75 / hit rate = 32%
+# strcache performance: lookups = 57 / hit rate = 40%
 # hash-table stats:
-# Load=51/8192=1%, Rehash=0, Collisions=2/75=3%
-# Finished Make data base on Thu Nov 18 04:55:20 2021
+# Load=34/8192=0%, Rehash=0, Collisions=2/57=4%
+# Finished Make data base on Thu Nov 18 07:11:38 2021
 
  
