@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 18:00:37 by dohykim           #+#    #+#             */
-/*   Updated: 2021/11/18 07:15:25 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/11/20 04:58:31 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,34 +23,62 @@ size_t	ft_max(size_t a, size_t b)
 	return (rtn);
 }
 
-int	ft_atoi(const char *str)
+int				ft_atoi(const char *str)
 {
-	long	nbr;
-	long	sign;
-	size_t	i;
+	int					sign;
+	long long			num;
 
-	nbr = 0;
 	sign = 1;
-	i = 0;
-	while (str[i] == ' ' || (9 <= str[i] && str[i] <= 13))
+	num = 0;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign *= -1;
 		str++;
-	if (str[i] == '-')
-		sign = -1;
-	if ((str[i] == '-') || (str[i] == '+'))
-		i++;
-	while (str[i] != '\0')
+	}
+	while (*str)
 	{
 		if (!(*str >= '0' && *str <= '9'))
 			check_error(NULL);
-		nbr = (nbr * 10) + (str[i] - '0');
-		if (nbr > 2147483647 && sign == 1)
-			check_error(NULL);
-		if (nbr > 2147483648 && sign == -1)
-			check_error(NULL);
-		i++;
+		num *= 10;
+		num += (*(str++) - '0');
 	}
-	return (sign * nbr);
+	num = num * sign;
+	if (num > 2147483647)
+		check_error(NULL);
+	if (num < -2147483648)
+		check_error(NULL);
+	return (num);
 }
+
+// int	ft_atoi(const char *str)
+// {
+// 	long	nbr;
+// 	long	sign;
+// 	size_t	i;
+
+// 	nbr = 0;
+// 	sign = 1;
+// 	i = 0;
+// 	while (str[i] == ' ' || (9 <= str[i] && str[i] <= 13))
+// 		str++;
+// 	if (str[i] == '-')
+// 		sign = -1;
+// 	if ((str[i] == '-') || (str[i] == '+'))
+// 		i++;
+// 	while (str[i] != '\0')
+// 	{
+// 		if (!(*str >= '0' && *str <= '9'))
+// 			check_error(NULL);
+// 		nbr = (nbr * 10) + (str[i] - '0');
+// 		if (nbr > 2147483647 && sign == 1)
+// 			check_error(NULL);
+// 		if (nbr > 2147483648 && sign == -1)
+// 			check_error(NULL);
+// 		i++;
+// 	}
+// 	return (sign * nbr);
+// }
 
 t_bool	check_error(t_stack *stack)
 {
@@ -73,7 +101,7 @@ t_bool	check_error(t_stack *stack)
 			node = node->next;
 		}
 	}
-	if (err_num == TRUE && write(1, "Error\n", 6))
+	if (err_num == TRUE && write(2, "Error\n", 6))
 		exit(1);
 	else
 		return (0);

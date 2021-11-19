@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Nov 20 03:03:13 2021
+# Make data base, printed on Sat Nov 20 04:03:12 2021
 
 # Variables
 
@@ -65,7 +65,7 @@ LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-a6661e4b-5a6b-42ae-84ac-d272c84fcc09.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-e8b7b414-52ae-40da-995d-0b468d492cc0.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -79,7 +79,7 @@ PWD = /home/dohykim/42cursus/push_swap/submmit/push_swap_origin
 # default
 .LOADED := 
 # environment
-WSL_INTEROP = /run/WSL/2392_interop
+WSL_INTEROP = /run/WSL/31976_interop
 # environment
 MANPATH = /home/linuxbrew/.linuxbrew/share/man::
 # environment
@@ -183,7 +183,7 @@ VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 # environment
 WSL_DISTRO_NAME = Ubuntu
 # variable set hash-table stats:
-# Load=86/1024=8%, Rehash=0, Collisions=17/146=12%
+# Load=86/1024=8%, Rehash=0, Collisions=12/133=9%
 
 # Pattern-specific Variable Values
 
@@ -191,12 +191,10 @@ WSL_DISTRO_NAME = Ubuntu
 
 # Directories
 
-# . (device 2064, inode 87007): 9 files, no impossibilities.
-# srcs/./sort (device 2064, inode 185505): 7 files, no impossibilities so far.
-# srcs/./utils (device 2064, inode 185515): 8 files, no impossibilities so far.
-# srcs (device 2064, inode 185501): 6 files, no impossibilities so far.
+# . (device 2064, inode 87007): 16 files, no impossibilities.
+# srcs (device 2064, inode 185501): 5 files, no impossibilities so far.
 
-# 30 files, no impossibilities in 4 directories.
+# 21 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -208,13 +206,6 @@ WSL_DISTRO_NAME = Ubuntu
 
 # Files
 
-# Not a target:
-srcs/./utils/command.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-11-20 03:02:18.2475269
-#  File has been updated.
-#  Successfully updated.
-
 all: push_swap
 #  Phony target (prerequisite of .PHONY).
 #  Command line target.
@@ -223,29 +214,9 @@ all: push_swap
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/20=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/7=0%
 
 .PHONY: clean fclean all re
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-srcs/./sort/solve_a.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-11-20 03:02:18.2475269
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-srcs/./sort/direction.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-11-20 03:02:18.2475269
-#  File has been updated.
-#  Successfully updated.
-
-# Not a target:
-.SUFFIXES:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -271,28 +242,10 @@ re: fclean all
 #  File has not been updated.
 
 # Not a target:
-srcs/./sort/solve_b.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-11-20 03:02:18.2475269
-#  File has been updated.
-#  Successfully updated.
- 
-
-# Not a target:
-srcs/./utils/instruction.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-11-20 03:02:18.2475269
-#  File has been updated.
-#  Successfully updated.
-
-srcs/./sort/index.o: srcs/./sort/index.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'srcs/./sort/index'
-#  Last modified 2021-11-20 03:02:18.2475269
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 40):
-			$(CC) $(CFLAGS) $(CDEBUG) -I$(HEADER) -o $@ -c $<
+srcs/./sort/index.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 fclean: clean
 #  Phony target (prerequisite of .PHONY).
@@ -302,14 +255,11 @@ fclean: clean
 #  recipe to execute (from 'Makefile', line 47):
 	rm -f $(NAME)
 
-srcs/./utils/utils.o: srcs/./utils/utils.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'srcs/./utils/utils'
-#  Last modified 2021-11-20 03:02:18.2575269
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 40):
-			$(CC) $(CFLAGS) $(CDEBUG) -I$(HEADER) -o $@ -c $<
+# Not a target:
+srcs/./utils/utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .DEFAULT:
@@ -317,139 +267,102 @@ srcs/./utils/utils.o: srcs/./utils/utils.c
 #  Modification time never checked.
 #  File has not been updated.
 
-srcs/./utils/instruction_utils.o: srcs/./utils/instruction_utils.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'srcs/./utils/instruction_utils'
-#  Last modified 2021-11-20 03:02:18.2475269
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 40):
-			$(CC) $(CFLAGS) $(CDEBUG) -I$(HEADER) -o $@ -c $<
+# Not a target:
+srcs/./utils/instruction_utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-srcs/./utils/command.o: srcs/./utils/command.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'srcs/./utils/command'
-#  Last modified 2021-11-20 03:02:18.2475269
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 40):
-			$(CC) $(CFLAGS) $(CDEBUG) -I$(HEADER) -o $@ -c $<
+# Not a target:
+srcs/./utils/command.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 clean:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
+ 
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 45):
 	rm -f $(OBJS)
 
 push_swap: srcs/main.o srcs/./utils/utils.o srcs/./utils/instruction.o srcs/./utils/instruction_utils.o srcs/./utils/command.o srcs/./sort/index.o srcs/./sort/solve_a.o srcs/./sort/solve_b.o srcs/./sort/direction.o
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: ''
-#  Last modified 2021-11-20 03:02:18.2475269
+#  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
-# automatic
-# @ := push_swap
-# automatic
-# % := 
-# automatic
-# * := 
-# automatic
-# + := srcs/main.o srcs/./utils/utils.o srcs/./utils/instruction.o srcs/./utils/instruction_utils.o srcs/./utils/command.o srcs/./sort/index.o srcs/./sort/solve_a.o srcs/./sort/solve_b.o srcs/./sort/direction.o
-# automatic
-# | := 
-# automatic
-# < := srcs/main.o
-# automatic
-# ^ := srcs/main.o srcs/./utils/utils.o srcs/./utils/instruction.o srcs/./utils/instruction_utils.o srcs/./utils/command.o srcs/./sort/index.o srcs/./sort/solve_a.o srcs/./sort/solve_b.o srcs/./sort/direction.o
-# automatic
-# ? := srcs/./utils/utils.o
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=6/28=21%
+# Load=0/32=0%, Rehash=0, Collisions=0/7=0%
 #  recipe to execute (from 'Makefile', line 43):
 			$(CC) $(CFLAGS) $(CDEBUG) -I$(HEADER) -o $(NAME) $(OBJS)
 
 # Not a target:
-srcs/./sort/index.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-11-20 03:02:18.2475269
-#  File has been updated.
-#  Successfully updated.
-
-srcs/./sort/solve_a.o: srcs/./sort/solve_a.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'srcs/./sort/solve_a'
-#  Last modified 2021-11-20 03:02:18.2475269
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 40):
-			$(CC) $(CFLAGS) $(CDEBUG) -I$(HEADER) -o $@ -c $<
-
-srcs/./sort/direction.o: srcs/./sort/direction.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'srcs/./sort/direction'
-#  Last modified 2021-11-20 03:02:18.2475269
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 40):
-			$(CC) $(CFLAGS) $(CDEBUG) -I$(HEADER) -o $@ -c $<
+srcs/./sort/solve_a.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
-srcs/./utils/utils.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-11-20 03:02:18.2575269
-#  File has been updated.
-#  Successfully updated.
+srcs/./sort/direction.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 srcs/main.o: srcs/main.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'srcs/main'
-#  Last modified 2021-11-20 03:02:18.2475269
+#  File does not exist.
 #  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 40):
-			$(CC) $(CFLAGS) $(CDEBUG) -I$(HEADER) -o $@ -c $<
-
-srcs/./sort/solve_b.o: srcs/./sort/solve_b.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'srcs/./sort/solve_b'
-#  Last modified 2021-11-20 03:02:18.2475269
-#  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := srcs/main.o
+# automatic
+# % := 
+# automatic
+# * := srcs/main
+# automatic
+# + := srcs/main.c
+# automatic
+# | := 
+# automatic
+# < := srcs/main.c
+# automatic
+# ^ := srcs/main.c
+# automatic
+# ? := srcs/main.c
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=3/17=18%
 #  recipe to execute (from 'Makefile', line 40):
 			$(CC) $(CFLAGS) $(CDEBUG) -I$(HEADER) -o $@ -c $<
 
 # Not a target:
-srcs/./utils/instruction_utils.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-11-20 03:02:18.2475269
-#  File has been updated.
-#  Successfully updated.
+srcs/./sort/solve_b.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-srcs/./utils/instruction.o: srcs/./utils/instruction.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'srcs/./utils/instruction'
-#  Last modified 2021-11-20 03:02:18.2475269
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 40):
-			$(CC) $(CFLAGS) $(CDEBUG) -I$(HEADER) -o $@ -c $<
+# Not a target:
+srcs/./utils/instruction.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # files hash-table stats:
-# Load=27/1024=3%, Rehash=0, Collisions=2/84=2%
+# Load=19/1024=2%, Rehash=0, Collisions=2/51=4%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 68 / storage = 963 B / avg = 14 B
-# current buf: size = 8162 B / used = 963 B / count = 68 / avg = 14 B
+# strcache buffers: 1 (0) / strings = 42 / storage = 484 B / avg = 11 B
+# current buf: size = 8162 B / used = 484 B / count = 42 / avg = 11 B
 
-# strcache performance: lookups = 101 / hit rate = 32%
+# strcache performance: lookups = 65 / hit rate = 35%
 # hash-table stats:
-# Load=68/8192=1%, Rehash=0, Collisions=2/101=2%
-# Finished Make data base on Sat Nov 20 03:03:13 2021
+# Load=42/8192=1%, Rehash=0, Collisions=2/65=3%
+# Finished Make data base on Sat Nov 20 04:03:13 2021
 
  
