@@ -6,17 +6,17 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 16:15:03 by dohykim           #+#    #+#             */
-/*   Updated: 2021/11/18 07:02:22 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/11/18 19:02:07 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_solve(t_stack *stack_a, t_cmd_lst *cmd_lst)
+void	sort(t_stack *stack_a, t_cmd_lst *cmd_lst)
 {
 	t_stack		stack_b;
 
-	ft_index_stack(stack_a);
+	index_stack(stack_a);
 	init_all(&stack_b, NULL);
 	solve_a(stack_a, &stack_b, cmd_lst);
 	solve_b(stack_a, &stack_b, cmd_lst);
@@ -58,7 +58,7 @@ int	main(int argc, char** argv)
 		while (argv[argc] != NULL)
 			set_arg(&stack_a, ft_atoi(argv[argc++]));
 		check_error(&stack_a);
-		ft_solve(&stack_a, &cmd_lst);
+		sort(&stack_a, &cmd_lst);
 		print_command(&cmd_lst);
 	}
 	exit(0);

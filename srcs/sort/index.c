@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 15:46:15 by dohykim           #+#    #+#             */
-/*   Updated: 2021/11/18 06:54:01 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/11/18 19:00:47 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ size_t	ft_markup_stack_index(t_stack *stack, t_node *markup_head)
 		index = markup_head->index;
 		markup_head->keep_stack = TRUE;
 		current = markup_head->next;
-		while (current != markup_head)
+		while (current != markup_head) //자기자신을 기준으로 쭉 훑음. 자기를 만나면 탈출.
 		{
-			if (current->index == index + 1)
+			if (current->index == index + 1) // 노드 다음것과 짝인지 아닌지 확인
 			{
 				pairs++;
 				current->keep_stack = TRUE;
@@ -65,7 +65,7 @@ void	opt_markup_stack(t_stack *stack)
 			i++;
 			current = current->next;
 		}
-		ft_markup_stack_index(stack, stack->markup_head);
+		ft_markup_stack_index(stack, stack->markup_head); // markup_head 기준으로 스택 재정렬
 	}
 }
 
@@ -97,7 +97,7 @@ static t_node	*ft_get_next_min(t_stack *stack)
 	return (min);
 }
 
-void	ft_index_stack(t_stack *stack)
+void	index_stack(t_stack *stack)
 {
 	size_t		index;
 	t_node		*current;

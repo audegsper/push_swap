@@ -6,13 +6,13 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 04:35:37 by dohykim           #+#    #+#             */
-/*   Updated: 2021/11/17 05:24:17 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/11/19 21:07:14 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	set_direction(size_t size,
+static void	check_shift_info(size_t size,
 					t_shift_info new_shift_info, t_shift_info *shift_info)
 {
 	if (!shift_info->is_set || size < shift_info->size)
@@ -26,11 +26,13 @@ static void	set_direction(size_t size,
 	}
 }
 
-static void	estimate_direction(t_stack *stack, int index,
+static void	node_to_top(t_stack *stack, t_node *node,
 								size_t *r_size, size_t *rr_size)
 {
 	t_node	*current;
+	int		index;
 
+	index = node->index;
 	if (stack && stack->top)
 	{
 		current = stack->top;
@@ -48,11 +50,13 @@ static void	estimate_direction(t_stack *stack, int index,
 	}
 }
 
-static t_node	*find_a_node(t_stack *a_stack, int b_index)
+static t_node	*find_a_node(t_stack *a_stack, t_node *b_node)
 {
 	t_node	*current;
+	int		b_index;
 
 	current = a_stack->markup_head;
+	b_index = b_node->index;
 	if (b_index < current->index)
 	{
 		while (b_index < current->prev->index
@@ -70,7 +74,7 @@ static t_node	*find_a_node(t_stack *a_stack, int b_index)
 	return (current);
 }
 
-static void	optimal_direction(t_stack *a_stack, t_stack* b_stack,
+static void	check_direction(t_stack *a_stack, t_stack* b_stack,
 								t_node *b_node, t_shift_info *shift_info)
 {
 	t_shift_info	new_shift_info;
@@ -83,33 +87,33 @@ static void	optimal_direction(t_stack *a_stack, t_stack* b_stack,
 	rra_size = 0;
 	rb_size = 0;
 	rrb_size = 0;
-	new_shift_info.a_node = find_a_node(a_stack, b_node->index);
+	new_shift_info.a_node = find_a_node(a_stack, b_node); //b노드 순차적으로 a스택 노드들 인데스와 비교
 	new_shift_info.b_node = b_node;
-	estimate_direction(a_stack, new_shift_info.a_node->index, &ra_size, &rra_size);
-	estimate_direction(b_stack, b_node->index, &rb_size, &rrb_size);
+	node_to_top(a_stack, new_shift_info.a_node, &ra_size, &rra_size);
+	node_to_top(b_stack, b_node, &rb_size, &rrb_size);
 	new_shift_info.a_direction = R;
 	new_shift_info.b_direction = R;
-	set_direction(ft_max(ra_size, rb_size), new_shift_info, shift_info);
+	check_shift_info(ft_max(ra_size, rb_size), new_shift_info, shift_info);
 	new_shift_info.a_direction = RR;
-	set_direction(rra_size + rb_size, new_shift_info, shift_info);
+	check_shift_info(rra_size + rb_size, new_shift_info, shift_info);
 	new_shift_info.b_direction = RR;
-	set_direction(ft_max(rra_size, rrb_size), new_shift_info, shift_info);
+	check_shift_info(ft_max(rra_size, rrb_size), new_shift_info, shift_info);
 	new_shift_info.a_direction = R;
-	set_direction(ra_size + rrb_size, new_shift_info, shift_info);
+	check_shift_info(ra_size + rrb_size, new_shift_info, shift_info);
 }
 
-void	opt_direction(t_stack *a_stack, t_stack *b_stack, t_shift_info *shift_info)
+void	find_min_cmd(t_stack *a_stack, t_stack *b_stack, t_shift_info *shift_info)
 {
 	size_t	i;
 	t_node	*current;
 
-	if (b_stack)
+	if (b_stack != NULL)
 	{
 		i = 0;
 		current = b_stack->top;
 		while (i < b_stack->size)
 		{
-			optimal_direction(a_stack, b_stack, current, shift_info);
+			check_direction(a_stack, b_stack, current, shift_info);
 			i++;
 			current = current->next;
 		}

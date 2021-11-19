@@ -6,7 +6,7 @@
 #    By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 15:50:21 by dohykim           #+#    #+#              #
-#    Updated: 2021/11/18 07:24:08 by dohykim          ###   ########.fr        #
+#    Updated: 2021/11/18 07:57:10 by dohykim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,10 @@ CC		= 	gcc
 CFLAGS	= 	-Wall -Wextra -Werror
 CDEBUG	= 	-fsanitize=address -g
 
-FOLDER		=	./srcs/
-HEADER		=	./includes/
+FOLDER	=	./srcs/
+HEADER	=	./includes/
 UTILS	=	./utils/
 SORT	=	./sort/
-OBJS_FOLDER	=	./objs/
 
 SRC_LIST	=	main.c\
 				$(UTILS)utils.c\

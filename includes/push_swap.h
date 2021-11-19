@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 16:15:56 by dohykim           #+#    #+#             */
-/*   Updated: 2021/11/18 06:55:08 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/11/19 21:05:37 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,8 @@ t_node	*pop(t_stack *stack);
 void	swap(t_stack *stk);
 void	rotate(t_stack *stk);
 void	reverse_rotate(t_stack *stack);
-void	ft_solve(t_stack *a_stack, t_cmd_lst	*cmd_lst);
-void	ft_index_stack(t_stack *stack);
+void	sort(t_stack *a_stack, t_cmd_lst *cmd_lst);
+void	index_stack(t_stack *stack);
 void	opt_markup_stack(t_stack *stack);
 void	init_cmd_lst(t_cmd_lst *cmd_lst);
 t_node	*node_init(int value);
@@ -98,7 +98,7 @@ void	try_reverse_rotate(t_stack *stk, char *name, t_cmd_lst *lst);
 size_t	ft_markup_stack_index(t_stack *stack, t_node *markup_head);
 void	solve_a(t_stack *a_stk, t_stack *b_stk, t_cmd_lst *cmd_lst);
 void	solve_b(t_stack *a_stack, t_stack *b_stack, t_cmd_lst *cmd_lst);
-void	opt_direction(t_stack *a_stack, t_stack *b_stack, t_shift_info *t_shift_info);
+void	find_min_cmd(t_stack *a_stack, t_stack *b_stack, t_shift_info *t_shift_info);
 size_t	ft_max(size_t a, size_t b);
 t_bool	check_error(t_stack *stack);
 void	align_a(t_stack *a_stack, t_cmd_lst *cmd_lst);

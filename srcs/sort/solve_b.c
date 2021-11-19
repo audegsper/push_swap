@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 03:48:09 by dohykim           #+#    #+#             */
-/*   Updated: 2021/11/18 06:35:58 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/11/19 21:04:40 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	solve_b(t_stack *a_stack, t_stack *b_stack, t_cmd_lst *cmd_lst)
 	while (b_stack->size)
 	{
 		shift_info->is_set = FALSE;
-		opt_direction(a_stack, b_stack, shift_info);
+		find_min_cmd(a_stack, b_stack, shift_info);
 		move_b(a_stack, b_stack, shift_info, cmd_lst);
 		push(a_stack, pop(b_stack));
 		add_command(cmd_lst, create_command("pa\n"));

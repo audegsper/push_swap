@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 03:45:43 by dohykim           #+#    #+#             */
-/*   Updated: 2021/11/18 06:55:39 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/11/19 20:34:40 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,12 @@ void	align_a(t_stack *a_stack, t_cmd_lst *cmd_lst)
 			rra_size++;
 			current = current->prev;
 		}
-		while (a_stack->top->index != 0 && (ra_size < rra_size))
-			try_rotate(a_stack, "ra\n", cmd_lst);
-		while (a_stack->top->index != 0 && (ra_size >= rra_size))
-			try_reverse_rotate(a_stack, "rra\n", cmd_lst);
+		if(ra_size < rra_size)
+			while (ra_size-- > 0)
+				try_rotate(a_stack, "ra\n", cmd_lst);
+		else
+			while (rra_size-- > 0)
+				try_reverse_rotate(a_stack, "rra\n", cmd_lst);
 	}
 }
 
