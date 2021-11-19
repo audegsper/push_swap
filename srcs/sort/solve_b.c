@@ -37,20 +37,17 @@ static void	move_b(t_stack *a_stack, t_stack *b_stack,
 		if (shift_info->a_direction == shift_info->b_direction \
 				&& shift_info->a_node != a_stack->top \
 				&& shift_info->b_node != b_stack->top)
-			((shift_info->a_direction == R) && \
+			shift_info->is_set = ((shift_info->a_direction == R) && \
 			try_rr(a_stack, b_stack, "rr\n", cmd_lst)) || \
-			((shift_info->a_direction == RR) && \
-			try_rrr(a_stack, b_stack, "rrr\n", cmd_lst));
+			try_rrr(a_stack, b_stack, "rrr\n", cmd_lst);
 		else if (shift_info->a_node != a_stack->top)
-			((shift_info->a_direction == R) && \
+			shift_info->is_set = ((shift_info->a_direction == R) && \
 			try_rotate(a_stack, "ra\n", cmd_lst)) || \
-			((shift_info->a_direction == RR) && \
-			try_reverse_rotate(a_stack, "rra\n", cmd_lst));
+			try_reverse_rotate(a_stack, "rra\n", cmd_lst);
 		else if (shift_info->b_node != b_stack->top)
-			((shift_info->a_direction == R) && \
+			shift_info->is_set = ((shift_info->a_direction == R) && \
 			try_rotate(b_stack, "rb\n", cmd_lst)) || \
-			((shift_info->a_direction == RR) && \
-			try_reverse_rotate(b_stack, "rrb\n", cmd_lst));
+			try_reverse_rotate(b_stack, "rrb\n", cmd_lst);
 	}
 }
 
