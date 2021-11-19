@@ -12,11 +12,12 @@
 
 #include "push_swap.h"
 
-static t_shift_info *init_shift_info(void)
+static t_shift_info	*init_shift_info(void)
 {
 	t_shift_info	*shift_info;
 
-	if (!(shift_info = (t_shift_info *)malloc(sizeof(t_shift_info))))
+	shift_info = (t_shift_info *)malloc(sizeof(t_shift_info));
+	if (!(shift_info))
 		return (NULL);
 	shift_info->a_node = NULL;
 	shift_info->b_node = NULL;
@@ -33,20 +34,20 @@ static void	move_b(t_stack *a_stack, t_stack *b_stack,
 	while (shift_info->a_node != a_stack->top
 		|| shift_info->b_node != b_stack->top)
 	{
-		if (shift_info->a_direction == shift_info->b_direction
-				&& shift_info->a_node != a_stack->top
+		if (shift_info->a_direction == shift_info->b_direction \
+				&& shift_info->a_node != a_stack->top \
 				&& shift_info->b_node != b_stack->top)
-			shift_info->a_direction == R ?
-			try_rr(a_stack, b_stack, "rr\n", cmd_lst) :
-			try_rrr(a_stack, b_stack, "rrr\n", cmd_lst);
+			((shift_info->a_direction == R) && \
+			try_rr(a_stack, b_stack, "rr\n", cmd_lst)) || \
+			(try_rrr(a_stack, b_stack, "rrr\n", cmd_lst));
 		else if (shift_info->a_node != a_stack->top)
-			shift_info->a_direction == R ?
-			try_rotate(a_stack, "ra\n", cmd_lst) :
+			((shift_info->a_direction == R) && \
+			try_rotate(a_stack, "ra\n", cmd_lst)) || \
 			try_reverse_rotate(a_stack, "rra\n", cmd_lst);
 		else if (shift_info->b_node != b_stack->top)
-			shift_info->a_direction == R ?
-			try_rotate(b_stack, "rb\n", cmd_lst) :
-			try_reverse_rotate(b_stack, "rrb\n", cmd_lst);
+			((shift_info->a_direction == R) && \
+			try_rotate(b_stack, "rb\n", cmd_lst)) ||
+			(try_reverse_rotate(b_stack, "rrb\n", cmd_lst));
 	}
 }
 

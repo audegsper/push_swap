@@ -22,19 +22,13 @@ void	align_a(t_stack *a_stack, t_cmd_lst *cmd_lst)
 	{
 		ra_size = 0;
 		current = a_stack->top;
-		while (current->index != 0)
-		{
-			ra_size++;
+		while (current->index != 0 && ++ra_size)
 			current = current->next;
-		}
 		rra_size = 0;
 		current = a_stack->top;
-		while (current->index != 0)
-		{
-			rra_size++;
+		while (current->index != 0 && ++rra_size)
 			current = current->prev;
-		}
-		if(ra_size < rra_size)
+		if (ra_size < rra_size)
 			while (ra_size-- > 0)
 				try_rotate(a_stack, "ra\n", cmd_lst);
 		else
@@ -63,8 +57,6 @@ static t_bool	check_pb(t_stack *a_stack)
 	return (FALSE);
 }
 
-
-
 static t_bool	check_sa(t_stack *a_stack)
 {
 	size_t	current_pairs;
@@ -81,11 +73,9 @@ static t_bool	check_sa(t_stack *a_stack)
 	return (FALSE);
 }
 
-
-
 void	solve_a(t_stack *a_stk, t_stack *b_stk, t_cmd_lst *cmd_lst)
 {
-	while(check_pb(a_stk))
+	while (check_pb(a_stk))
 	{
 		if (check_sa(a_stk))
 		{

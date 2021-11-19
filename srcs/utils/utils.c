@@ -14,7 +14,13 @@
 
 size_t	ft_max(size_t a, size_t b)
 {
-	return (a > b ? a : b);
+	size_t	rtn;
+
+	if (a > b)
+		rtn = a;
+	else
+		rtn = b;
+	return (rtn);
 }
 
 int	ft_atoi(const char *str)
@@ -67,19 +73,19 @@ t_bool	check_error(t_stack *stack)
 			node = node->next;
 		}
 	}
-	if (err_num == TRUE)
-	{
-		write(1, "Error\n", 6);
+	if (err_num == TRUE && write(1, "Error\n", 6))
 		exit(1);
-	}
 	else
 		return (0);
 }
 
 t_node	*node_init(int value)
 {
-	t_node *new_node;
+	t_node	*new_node;
+
 	new_node = (t_node *)malloc(sizeof(t_node));
+	if (new_node == NULL)
+		return (NULL);
 	new_node->value = value;
 	new_node->prev = NULL;
 	new_node->next = NULL;

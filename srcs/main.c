@@ -46,7 +46,7 @@ void	set_arg(t_stack *stack, int arg_num)
 	stack->size++;
 }
 
-int	main(int argc, char** argv)
+int	main(int argc, char **argv)
 {
 	t_stack		stack_a;
 	t_cmd_lst	cmd_lst;

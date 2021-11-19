@@ -74,7 +74,7 @@ static t_node	*find_a_node(t_stack *a_stack, t_node *b_node)
 	return (current);
 }
 
-static void	check_direction(t_stack *a_stack, t_stack* b_stack,
+static void	check_direction(t_stack *a_stack, t_stack *b_stack, \
 								t_node *b_node, t_shift_info *shift_info)
 {
 	t_shift_info	new_shift_info;
@@ -87,7 +87,7 @@ static void	check_direction(t_stack *a_stack, t_stack* b_stack,
 	rra_size = 0;
 	rb_size = 0;
 	rrb_size = 0;
-	new_shift_info.a_node = find_a_node(a_stack, b_node); //b노드 순차적으로 a스택 노드들 인데스와 비교
+	new_shift_info.a_node = find_a_node(a_stack, b_node);
 	new_shift_info.b_node = b_node;
 	node_to_top(a_stack, new_shift_info.a_node, &ra_size, &rra_size);
 	node_to_top(b_stack, b_node, &rb_size, &rrb_size);
@@ -102,18 +102,18 @@ static void	check_direction(t_stack *a_stack, t_stack* b_stack,
 	check_shift_info(ra_size + rrb_size, new_shift_info, shift_info);
 }
 
-void	find_min_cmd(t_stack *a_stack, t_stack *b_stack, t_shift_info *shift_info)
+void	find_min_cmd(t_stack *a_stk, t_stack *b_stk, t_shift_info *shift_info)
 {
 	size_t	i;
 	t_node	*current;
 
-	if (b_stack != NULL)
+	if (b_stk != NULL)
 	{
 		i = 0;
-		current = b_stack->top;
-		while (i < b_stack->size)
+		current = b_stk->top;
+		while (i < b_stk->size)
 		{
-			check_direction(a_stack, b_stack, current, shift_info);
+			check_direction(a_stk, b_stk, current, shift_info);
 			i++;
 			current = current->next;
 		}

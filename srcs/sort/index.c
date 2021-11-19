@@ -24,9 +24,9 @@ size_t	ft_markup_stack_index(t_stack *stack, t_node *markup_head)
 		index = markup_head->index;
 		markup_head->keep_stack = TRUE;
 		current = markup_head->next;
-		while (current != markup_head) //자기자신을 기준으로 쭉 훑음. 자기를 만나면 탈출.
+		while (current != markup_head)
 		{
-			if (current->index == index + 1) // 노드 다음것과 짝인지 아닌지 확인
+			if (current->index == index + 1)
 			{
 				pairs++;
 				current->keep_stack = TRUE;
@@ -58,14 +58,14 @@ void	opt_markup_stack(t_stack *stack)
 				stack->markup_head = current;
 				stack->pairs = current_pairs;
 			}
-			else if (current_pairs == stack->pairs &&
-				(!stack->markup_head ||
+			else if (current_pairs == stack->pairs && \
+				(!stack->markup_head || \
 					current->value < stack->markup_head->value))
 				stack->markup_head = current;
 			i++;
 			current = current->next;
 		}
-		ft_markup_stack_index(stack, stack->markup_head); // markup_head 기준으로 스택 재정렬
+		ft_markup_stack_index(stack, stack->markup_head);
 	}
 }
 
@@ -76,23 +76,20 @@ static t_node	*ft_get_next_min(t_stack *stack)
 	t_node		*min;
 	t_node		*current;
 
-	if(stack)
+	min = NULL;
+	i = 0;
+	has_min = FALSE;
+	current = stack->top;
+	while (i < stack->size)
 	{
-		min = NULL;
-		i = 0;
-		has_min = FALSE;
-		current = stack->top;
-		while (i < stack->size)
+		if ((current->index == -1) \
+		&& (!has_min || current->value < min->value))
 		{
-			if ((current->index == -1)
-			&& (!has_min || current->value < min->value))
-			{
-				has_min = TRUE;
-				min = current;
-			}
-			i++;
-			current = current->next;
+			has_min = TRUE;
+			min = current;
 		}
+		i++;
+		current = current->next;
 	}
 	return (min);
 }
@@ -103,7 +100,11 @@ void	index_stack(t_stack *stack)
 	t_node		*current;
 
 	index = 0;
-	while ((current = ft_get_next_min(stack)))
+	current = ft_get_next_min(stack);
+	while (current)
+	{
 		current->index = index++;
+		current = ft_get_next_min(stack);
+	}
 	opt_markup_stack(stack);
 }

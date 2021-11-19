@@ -10,13 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 t_command	*create_command(char *str)
 {
-	t_command *cmd;
+	t_command	*cmd;
 
-	if (!(cmd = (t_command *)malloc(sizeof(t_command))))
+	cmd = (t_command *)malloc(sizeof(t_command));
+	if (!cmd)
 		return (NULL);
 	cmd->name = str;
 	cmd->next = NULL;
@@ -25,7 +26,7 @@ t_command	*create_command(char *str)
 
 void	add_command(t_cmd_lst *lst, t_command *cmd)
 {
-	t_command *last;
+	t_command	*last;
 
 	if (lst && cmd)
 	{
@@ -44,13 +45,13 @@ void	add_command(t_cmd_lst *lst, t_command *cmd)
 
 void	print_command(t_cmd_lst *lst)
 {
-	t_command *current;
-	int i;
-	char *str;
+	t_command	*current;
+	int			i;
+	char		*str;
 
 	current = lst->head;
 	str = (char *)malloc(sizeof(char));
-	while(current)
+	while (current)
 	{
 		i = 0;
 		*str = current->name[i];

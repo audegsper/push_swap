@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 void	reverse_rotate(t_stack *stack)
 {
@@ -44,8 +44,8 @@ t_node	*pop(t_stack *stack)
 		{
 			tmp_top = stack->top;
 			stack->top = stack->top->next;
-			tmp_top->prev->next =	tmp_top->next;
-			tmp_top->next->prev =	tmp_top->prev;
+			tmp_top->prev->next = tmp_top->next;
+			tmp_top->next->prev = tmp_top->prev;
 			tmp_top->prev = NULL;
 			tmp_top->next = NULL;
 		}
@@ -56,7 +56,7 @@ t_node	*pop(t_stack *stack)
 
 void	push(t_stack *stack, t_node *node)
 {
-	t_node *tmp_bottom;
+	t_node	*tmp_bottom;
 
 	if (stack && node)
 	{
