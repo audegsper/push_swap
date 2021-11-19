@@ -18,7 +18,7 @@ int	try_rr(t_stack *a, t_stack *b, char *name, t_cmd_lst *lst)
 	rotate(b);
 	if (name && lst)
 		add_command(lst, create_command(name));
-	return (1);
+	return (0);
 }
 
 int	try_rrr(t_stack *a, t_stack *b, char *name, t_cmd_lst *lst)
@@ -27,7 +27,7 @@ int	try_rrr(t_stack *a, t_stack *b, char *name, t_cmd_lst *lst)
 	reverse_rotate(b);
 	if (name && lst)
 		add_command(lst, create_command(name));
-	return (1);
+	return (0);
 }
 
 int	try_rotate(t_stack *stk, char *name, t_cmd_lst *lst)
@@ -35,7 +35,7 @@ int	try_rotate(t_stack *stk, char *name, t_cmd_lst *lst)
 	rotate(stk);
 	if (name && lst)
 		add_command(lst, create_command(name));
-	return (1);
+	return (0);
 }
 
 int	try_reverse_rotate(t_stack *stk, char *name, t_cmd_lst *lst)
@@ -43,5 +43,5 @@ int	try_reverse_rotate(t_stack *stk, char *name, t_cmd_lst *lst)
 	reverse_rotate(stk);
 	if (name && lst)
 		add_command(lst, create_command(name));
-	return (1);
+	return (0);
 }
