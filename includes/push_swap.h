@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 16:15:56 by dohykim           #+#    #+#             */
-/*   Updated: 2021/11/19 21:05:37 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/11/20 03:16:53 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ void		rotate(t_stack *stk);
 void		reverse_rotate(t_stack *stack);
 void		sort(t_stack *a_stack, t_cmd_lst *cmd_lst);
 void		index_stack(t_stack *stack);
-void		opt_markup_stack(t_stack *stack);
 void		init_cmd_lst(t_cmd_lst *cmd_lst);
 t_node		*node_init(int value);
 void		print_command(t_cmd_lst *lst);
@@ -92,7 +91,7 @@ int			try_rr(t_stack *a, t_stack *b, char *name, t_cmd_lst *lst);
 int			try_rrr(t_stack *a, t_stack *b, char *name, t_cmd_lst *lst);
 int			try_rotate(t_stack *stk, char *name, t_cmd_lst *lst);
 int			try_reverse_rotate(t_stack *stk, char *name, t_cmd_lst *lst);
-size_t		ft_markup_stack_index(t_stack *stack, t_node *markup_head);
+size_t		mark_keep_stack(t_stack *stack, t_node *markup_head);
 void		solve_a(t_stack *a_stk, t_stack *b_stk, t_cmd_lst *cmd_lst);
 void		solve_b(t_stack *a_stack, t_stack *b_stack, t_cmd_lst *cmd_lst);
 void		find_min_cmd(t_stack *a_stack, t_stack *b_stack, \

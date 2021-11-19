@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 03:45:43 by dohykim           #+#    #+#             */
-/*   Updated: 2021/11/19 20:34:40 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/11/20 03:16:34 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ static t_bool	check_sa(t_stack *a_stack)
 	if (a_stack && a_stack->size >= 2)
 	{
 		swap(a_stack);
-		current_pairs = ft_markup_stack_index(a_stack, a_stack->markup_head);
+		current_pairs = mark_keep_stack(a_stack, a_stack->markup_head);
 		swap(a_stack);
-		ft_markup_stack_index(a_stack, a_stack->markup_head);
+		mark_keep_stack(a_stack, a_stack->markup_head);
 		if (current_pairs > a_stack->pairs)
 			return (TRUE);
 	}
@@ -81,7 +81,7 @@ void	solve_a(t_stack *a_stk, t_stack *b_stk, t_cmd_lst *cmd_lst)
 		{
 			swap(a_stk);
 			add_command(cmd_lst, create_command("sa\n"));
-			a_stk->pairs = ft_markup_stack_index(a_stk, a_stk->markup_head);
+			a_stk->pairs = mark_keep_stack(a_stk, a_stk->markup_head);
 		}
 		else if (a_stk->top->keep_stack == FALSE)
 		{

@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 03:48:09 by dohykim           #+#    #+#             */
-/*   Updated: 2021/11/19 21:04:40 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/11/20 03:04:05 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	move_b(t_stack *a_stack, t_stack *b_stack,
 			try_rotate(a_stack, "ra\n", cmd_lst)) || \
 			try_reverse_rotate(a_stack, "rra\n", cmd_lst);
 		else if (shift_info->b_node != b_stack->top)
-			shift_info->is_set = ((shift_info->a_direction == R) && \
+			shift_info->is_set = ((shift_info->b_direction == R) && \
 			try_rotate(b_stack, "rb\n", cmd_lst)) || \
 			try_reverse_rotate(b_stack, "rrb\n", cmd_lst);
 	}

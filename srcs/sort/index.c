@@ -6,13 +6,13 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 15:46:15 by dohykim           #+#    #+#             */
-/*   Updated: 2021/11/18 19:00:47 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/11/20 03:19:16 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-size_t	ft_markup_stack_index(t_stack *stack, t_node *markup_head)
+size_t	mark_keep_stack(t_stack *stack, t_node *markup_head)
 {
 	ssize_t	index;
 	size_t	pairs;
@@ -40,7 +40,7 @@ size_t	ft_markup_stack_index(t_stack *stack, t_node *markup_head)
 	return (pairs);
 }
 
-void	opt_markup_stack(t_stack *stack)
+static void	set_pivot(t_stack *stack)
 {
 	size_t	i;
 	size_t	current_pairs;
@@ -52,7 +52,7 @@ void	opt_markup_stack(t_stack *stack)
 		current = stack->top;
 		while (i < stack->size)
 		{
-			current_pairs = ft_markup_stack_index(stack, current);
+			current_pairs = mark_keep_stack(stack, current);
 			if (current_pairs > stack->pairs)
 			{
 				stack->markup_head = current;
@@ -65,11 +65,11 @@ void	opt_markup_stack(t_stack *stack)
 			i++;
 			current = current->next;
 		}
-		ft_markup_stack_index(stack, stack->markup_head);
+		mark_keep_stack(stack, stack->markup_head);
 	}
 }
 
-static t_node	*ft_get_next_min(t_stack *stack)
+static t_node	*get_next_min(t_stack *stack)
 {
 	size_t		i;
 	t_bool		has_min;
@@ -100,11 +100,11 @@ void	index_stack(t_stack *stack)
 	t_node		*current;
 
 	index = 0;
-	current = ft_get_next_min(stack);
+	current = get_next_min(stack);
 	while (current)
 	{
 		current->index = index++;
-		current = ft_get_next_min(stack);
+		current = get_next_min(stack);
 	}
-	opt_markup_stack(stack);
+	set_pivot(stack);
 }
