@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 16:15:03 by dohykim           #+#    #+#             */
-/*   Updated: 2021/11/20 19:11:21 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/11/21 01:27:35 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	main(int argc, char **argv)
 			set_arg(&stack_a, ft_atoi(argv[argc++]));
 		sort(&stack_a, cmd_lst);
 		print_command(cmd_lst);
-		free_command(cmd_lst);
+		// free_command(cmd_lst);
 	}
 	return (0);
 }

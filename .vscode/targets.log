@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Nov 20 21:29:05 2021
+# Make data base, printed on Sun Nov 21 00:31:06 2021
 
 # Variables
 
@@ -191,12 +191,12 @@ WSL_DISTRO_NAME = Ubuntu
 
 # Directories
 
-# . (device 2064, inode 36975): 11 files, no impossibilities.
+# . (device 2064, inode 36975): 12 files, no impossibilities.
 # srcs/./sort (device 2064, inode 186003): 7 files, no impossibilities so far.
 # srcs/./utils (device 2064, inode 186008): 10 files, no impossibilities so far.
 # srcs (device 2064, inode 186001): 6 files, no impossibilities so far.
 
-# 34 files, no impossibilities in 4 directories.
+# 35 files, no impossibilities in 4 directories.
 
 # Implicit Rules
 
@@ -238,7 +238,7 @@ srcs/./sort/solve_a.c:
 srcs/./utils/stack_utils.o: srcs/./utils/stack_utils.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'srcs/./utils/stack_utils'
-#  Last modified 2021-11-20 19:11:26.8585836
+#  Last modified 2021-11-21 00:29:41.9598729
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 41):
@@ -254,14 +254,14 @@ srcs/./sort/direction.c:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-20 18:42:24.7748759
+#  Last modified 2021-11-21 00:29:51.4298729
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 srcs/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-20 19:11:21.0985836
+#  Last modified 2021-11-21 00:28:47.6098729
 #  File has been updated.
 #  Successfully updated.
 
@@ -275,7 +275,7 @@ re: fclean all
 srcs/./sort/solve_b.c:
 #  Implicit rule search has been done.
  
-#  Last modified 2021-11-20 13:50:16.4094785
+#  Last modified 2021-11-21 00:28:54.3298729
 #  File has been updated.
 #  Successfully updated.
 
@@ -289,7 +289,7 @@ srcs/./utils/instruction.c:
 srcs/./sort/index.o: srcs/./sort/index.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'srcs/./sort/index'
-#  Last modified 2021-11-20 19:11:26.9385836
+#  Last modified 2021-11-21 00:29:42.0198729
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 41):
@@ -313,7 +313,7 @@ srcs/./utils/stack_utils.c:
 srcs/./utils/utils.o: srcs/./utils/utils.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'srcs/./utils/utils'
-#  Last modified 2021-11-20 19:11:26.7685836
+#  Last modified 2021-11-21 00:29:41.8498729
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 41):
@@ -328,7 +328,7 @@ srcs/./utils/utils.o: srcs/./utils/utils.c
 srcs/./utils/instruction_utils.o: srcs/./utils/instruction_utils.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'srcs/./utils/instruction_utils'
-#  Last modified 2021-11-20 19:11:26.8285836
+#  Last modified 2021-11-21 00:29:41.9298729
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 41):
@@ -337,7 +337,7 @@ srcs/./utils/instruction_utils.o: srcs/./utils/instruction_utils.c
 srcs/./utils/command.o: srcs/./utils/command.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'srcs/./utils/command'
-#  Last modified 2021-11-20 19:11:26.8985836
+#  Last modified 2021-11-21 00:29:41.9898729
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 41):
@@ -353,7 +353,7 @@ clean:
 
 push_swap: srcs/main.o srcs/./utils/utils.o srcs/./utils/instruction.o srcs/./utils/instruction_utils.o srcs/./utils/stack_utils.o srcs/./utils/command.o srcs/./sort/index.o srcs/./sort/solve_a.o srcs/./sort/solve_b.o srcs/./sort/direction.o
 #  Implicit rule search has not been done.
-#  Last modified 2021-11-20 19:11:27.1985836
+#  Last modified 2021-11-21 00:29:42.2898729
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 44):
@@ -369,7 +369,7 @@ srcs/./sort/index.c:
 srcs/./sort/solve_a.o: srcs/./sort/solve_a.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'srcs/./sort/solve_a'
-#  Last modified 2021-11-20 19:11:26.9785836
+#  Last modified 2021-11-21 00:29:42.0598729
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 41):
@@ -378,7 +378,7 @@ srcs/./sort/solve_a.o: srcs/./sort/solve_a.c
 srcs/./sort/direction.o: srcs/./sort/direction.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'srcs/./sort/direction'
-#  Last modified 2021-11-20 19:11:27.0485836
+#  Last modified 2021-11-21 00:29:42.1298729
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 41):
@@ -394,7 +394,7 @@ srcs/./utils/utils.c:
 srcs/main.o: srcs/main.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'srcs/main'
-#  Last modified 2021-11-20 19:11:26.7285836
+#  Last modified 2021-11-21 00:29:41.8198729
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 41):
@@ -403,7 +403,7 @@ srcs/main.o: srcs/main.c
 srcs/./sort/solve_b.o: srcs/./sort/solve_b.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'srcs/./sort/solve_b'
-#  Last modified 2021-11-20 19:11:27.0085836
+#  Last modified 2021-11-21 00:29:42.0898729
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 41):
@@ -419,7 +419,7 @@ srcs/./utils/instruction_utils.c:
 srcs/./utils/instruction.o: srcs/./utils/instruction.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'srcs/./utils/instruction'
-#  Last modified 2021-11-20 19:11:26.8085836
+#  Last modified 2021-11-21 00:29:41.8998729
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 41):
@@ -433,12 +433,12 @@ srcs/./utils/instruction.o: srcs/./utils/instruction.c
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 75 / storage = 1107 B / avg = 14 B
-# current buf: size = 8162 B / used = 1107 B / count = 75 / avg = 14 B
+# strcache buffers: 1 (0) / strings = 76 / storage = 1124 B / avg = 14 B
+# current buf: size = 8162 B / used = 1124 B / count = 76 / avg = 14 B
 
-# strcache performance: lookups = 108 / hit rate = 30%
+# strcache performance: lookups = 109 / hit rate = 30%
 # hash-table stats:
-# Load=75/8192=1%, Rehash=0, Collisions=2/108=2%
-# Finished Make data base on Sat Nov 20 21:29:05 2021
+# Load=76/8192=1%, Rehash=0, Collisions=2/109=2%
+# Finished Make data base on Sun Nov 21 00:31:06 2021
 
  
