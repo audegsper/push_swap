@@ -6,7 +6,7 @@
 #    By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 15:50:21 by dohykim           #+#    #+#              #
-#    Updated: 2021/11/18 07:57:10 by dohykim          ###   ########.fr        #
+#    Updated: 2021/11/20 18:42:24 by dohykim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC_LIST	=	main.c\
 				$(UTILS)utils.c\
 				$(UTILS)instruction.c\
 				$(UTILS)instruction_utils.c\
+				$(UTILS)stack_utils.c\
 				$(UTILS)command.c\
 				$(SORT)index.c\
 				$(SORT)solve_a.c\

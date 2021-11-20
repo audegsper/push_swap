@@ -1,0 +1,5 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/dohykim/eval/push_swap_eval'
+make: Nothing to be done for 'all'.
+make: Leaving directory '/home/dohykim/eval/push_swap_eval'
+ 

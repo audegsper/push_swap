@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 09:59:16 by dohykim           #+#    #+#             */
-/*   Updated: 2021/11/18 06:33:07 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/11/20 18:23:18 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,19 @@ void	print_command(t_cmd_lst *lst)
 		current = current->next;
 	}
 	free(str);
+}
+
+void	free_command(t_cmd_lst *lst)
+{
+	t_command *tmp;
+	t_command *current;
+
+	current = lst->head;
+	while (current)
+	{
+		tmp = current;
+		current = current -> next;
+		free(tmp);
+	}
+	free(lst);
 }

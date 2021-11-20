@@ -6,7 +6,7 @@
 /*   By: dohykim <dohykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 16:15:03 by dohykim           #+#    #+#             */
-/*   Updated: 2021/11/18 19:02:07 by dohykim          ###   ########.fr       */
+/*   Updated: 2021/11/20 18:37:49 by dohykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	sort(t_stack *stack_a, t_cmd_lst *cmd_lst)
 {
-	t_stack		stack_b;
+	t_stack	stack_b;
 
 	index_stack(stack_a);
 	init_all(&stack_b, NULL);
@@ -33,6 +33,7 @@ void	set_arg(t_stack *stack, int arg_num)
 		stack->top = new_node;
 		stack->set_idx = new_node;
 		stack->bottom = new_node;
+		stack->size++;
 	}
 	else
 	{
@@ -42,24 +43,28 @@ void	set_arg(t_stack *stack, int arg_num)
 		stack->set_idx = new_node;
 		stack->bottom->next = stack->top;
 		stack->top->prev = stack->bottom;
+		stack->size++;
+		check_error(stack);
 	}
-	stack->size++;
 }
 
 int	main(int argc, char **argv)
 {
 	t_stack		stack_a;
-	t_cmd_lst	cmd_lst;
+	t_cmd_lst	*cmd_lst;
 
-	if (argc >= 2)
+	if (argc == 2)
+		ft_atoi(argv[1]);
+	if (argc > 2)
 	{
-		init_all(&stack_a, &cmd_lst);
+		cmd_lst = (t_cmd_lst *)malloc(sizeof(t_cmd_lst));
+		init_all(&stack_a, cmd_lst);
 		argc = 1;
 		while (argv[argc] != NULL)
 			set_arg(&stack_a, ft_atoi(argv[argc++]));
-		check_error(&stack_a);
-		sort(&stack_a, &cmd_lst);
-		print_command(&cmd_lst);
+		sort(&stack_a, cmd_lst);
+		print_command(cmd_lst);
+		free_command(cmd_lst);
 	}
-	exit(0);
+	return (0);
 }
