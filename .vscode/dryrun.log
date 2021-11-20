@@ -1,5 +1,15 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/dohykim/eval/push_swap_eval'
-make: Nothing to be done for 'all'.
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I./includes/ -o srcs/main.o -c srcs/main.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I./includes/ -o srcs/./utils/utils.o -c srcs/./utils/utils.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I./includes/ -o srcs/./utils/instruction.o -c srcs/./utils/instruction.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I./includes/ -o srcs/./utils/instruction_utils.o -c srcs/./utils/instruction_utils.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I./includes/ -o srcs/./utils/stack_utils.o -c srcs/./utils/stack_utils.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I./includes/ -o srcs/./utils/command.o -c srcs/./utils/command.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I./includes/ -o srcs/./sort/index.o -c srcs/./sort/index.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I./includes/ -o srcs/./sort/solve_a.o -c srcs/./sort/solve_a.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I./includes/ -o srcs/./sort/solve_b.o -c srcs/./sort/solve_b.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I./includes/ -o srcs/./sort/direction.o -c srcs/./sort/direction.c
+gcc -Wall -Wextra -Werror -fsanitize=address -g -I./includes/ -o push_swap ./srcs/main.o ./srcs/./utils/utils.o ./srcs/./utils/instruction.o ./srcs/./utils/instruction_utils.o ./srcs/./utils/stack_utils.o ./srcs/./utils/command.o ./srcs/./sort/index.o ./srcs/./sort/solve_a.o ./srcs/./sort/solve_b.o ./srcs/./sort/direction.o
 make: Leaving directory '/home/dohykim/eval/push_swap_eval'
  
