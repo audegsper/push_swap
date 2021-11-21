@@ -56,7 +56,7 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		if (argv[1][0] == '\0')
-				check_error(NULL);
+			check_error(NULL);
 		ft_atoi(argv[1]);
 	}
 	if (argc > 2)
