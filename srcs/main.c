@@ -54,7 +54,11 @@ int	main(int argc, char **argv)
 	t_cmd_lst	*cmd_lst;
 
 	if (argc == 2)
+	{
+		if (argv[1][0] == '\0')
+				check_error(NULL);
 		ft_atoi(argv[1]);
+	}
 	if (argc > 2)
 	{
 		cmd_lst = (t_cmd_lst *)malloc(sizeof(t_cmd_lst));
