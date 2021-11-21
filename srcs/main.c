@@ -61,10 +61,14 @@ int	main(int argc, char **argv)
 		init_all(&stack_a, cmd_lst);
 		argc = 1;
 		while (argv[argc] != NULL)
+		{
+			if (argv[argc][0] == '\0')
+				check_error(NULL);
 			set_arg(&stack_a, ft_atoi(argv[argc++]));
+		}
 		sort(&stack_a, cmd_lst);
 		print_command(cmd_lst);
-		// free_command(cmd_lst);
+		free_command(cmd_lst);
 	}
 	return (0);
 }

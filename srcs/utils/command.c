@@ -68,8 +68,8 @@ void	print_command(t_cmd_lst *lst)
 
 void	free_command(t_cmd_lst *lst)
 {
-	t_command *tmp;
-	t_command *current;
+	t_command	*tmp;
+	t_command	*current;
 
 	current = lst->head;
 	while (current)
